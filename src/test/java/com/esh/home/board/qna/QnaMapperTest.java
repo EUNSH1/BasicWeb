@@ -1,17 +1,30 @@
-package com.esh.start;
+package com.esh.home.board.qna;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.esh.start.board.qna.QnaMapper;
 import com.esh.start.board.qna.QnaVO;
 
-@SpringBootTest
-class BasicWebApplicationTests {
+// 상속 안 받고 추가만 하면 됨
 
+@SpringBootTest(classes = QnaMapperTest.class)
+class QnaMapperTest {
+
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private QnaMapper qnaMapper;
 	

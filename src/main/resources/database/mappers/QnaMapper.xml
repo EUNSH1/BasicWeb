@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.esh.start.board.qna.QnaMapper">
+ 	<select id="getList" resultType="QnaVO" >
+ 		SELECT * 
+		FROM QNA 
+		<!-- WHERE CONTENTS LIKE CONCAT('%','e','%') -->
+		ORDER BY NUM DESC
+		limit #{startRow}, #{lastRow}
+ 	</select>
+ 	
+ 	<insert id="setQnaList" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num">	
+ 		INSERT INTO QNA
+		VALUE (num,#{writer},#{title},#{contents},0,now(),0,0,0);
+ 	</insert>
+ 	
+ 	
+ 	<select id="getCount" resultType="Long" parameterType="Pager">
+		SELECT
+		COUNT(NUM) FROM QNA
+	</select>
+ 	
+ 	<delete id="setDelete" parameterType="QnaVO">
+		DELETE FROM  QNA WHERE NUM = #{num}
+ 	</delete>
+ 	
+ 	<update id="setUpdate" parameterType="QnaVO">
+ 		UPDATE QNA SET 
+		WRITER = #{writer}, TITLE = #{title}, contents = #{contents} WHERE NUM=#{num}
+ 	</update>
+ 	
+ 	<select id="getListDetail" parameterType="QnaVO" resultType="QnaVO">
+		SELECT * 
+			FROM QNA
+			where num = #{num}
+	</select>
+</mapper>
