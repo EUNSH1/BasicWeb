@@ -28,7 +28,7 @@ class QnaMapperTest {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
-	@Test
+	//@Test
 	void test2() throws Exception {
 
 		QnaVO qnaVO = new QnaVO();
