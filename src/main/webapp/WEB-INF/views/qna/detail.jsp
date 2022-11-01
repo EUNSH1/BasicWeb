@@ -40,7 +40,12 @@
     
   </tbody>
 </table>
-	
+
+</section>
+<section class="container-fluid col-lg-2 mt-5">
+
+<div> <a href="/qna/update?num=${qnaVO.num}" class="btn btn-info" >글 수정</a></div>
+<div> <a href="/qna/delete?num=${qnaVO.num}" class="btn btn-info" style="margin-top: 10px;">글 삭제</a></div>
 </section>
 	
 	

@@ -31,4 +31,14 @@ public class QnaService {
 		
 		return qnaMapper.getListDetail(qnaVO);
 	}
+	
+	public int setDelete(QnaVO qnaVO) throws Exception{
+		
+		return qnaMapper.setDelete(qnaVO);
+	}
+	
+	public int setUpdate(QnaVO qnaVO) throws Exception{
+		
+		return qnaMapper.setUpdate(qnaVO);
+	}
 }

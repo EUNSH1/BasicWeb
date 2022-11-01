@@ -17,4 +17,9 @@ public interface QnaMapper {
 	public Long getCount(Pager pager) throws Exception;
 	
 	public QnaVO getListDetail(QnaVO qnaVO) throws Exception;
+
+	public int setDelete(QnaVO qnaVO) throws Exception;
+	
+	public int setUpdate(QnaVO qnaVO) throws Exception;
+	
 }

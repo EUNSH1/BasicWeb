@@ -17,13 +17,14 @@
 	
 	<c:import url="../temp/header.jsp"></c:import>
 	<section class="container-fluid col-lg-8 mt-5">
-		<h1>Board Write Page</h1>
+		<h1>Board Update Page</h1>
 		<div class="row">
-	 <form class="align-center" action="./add" method="post" enctype="multipart/form-data">
+	 <form class="align-center" action="./update" method="post">
         
+        <input type="hidden" name="num" value="${num}">
         <div>
         글 제목<br>
-        <input type="text" name="title" placeholder="글 제목을 입력하세요"><br>
+        <input type="text" name="title"><br>
         </div>
          <div>
         작성자<br>
@@ -34,16 +35,6 @@
         <textarea id="contents" name="contents" rows="30" cols="100"></textarea>
         </div>
         
-        <!-- <div>
-        <input type="file" name="files" class="files">
-    	
-        </div>
-        
-        <div>
-        <input type="file" name="files" class="files"> 
-    	
-        </div> -->
-        
   
         <!-- <div id="addFiles">
             <button type="button" id="fileadd" class="btn btn-success">파일 추가</button>
@@ -51,7 +42,7 @@
 				
         
         
-        <input type="submit" name="add" value="책 추가"  class ="btn btn-info"style="margin-left: 300px;">
+        <input type="submit" name="update" value="수정하기"  class ="btn btn-info">
         </form>
 </div>
 	
