@@ -51,27 +51,21 @@ public class MemberController {
 	}
 	
 	@GetMapping("join")
-	public void setAdd(@ModelAttribute MemberVO memberVO)throws Exception{
+	public void setAdd(MemberVO memberVO)throws Exception{
 		//MemberVO memberVO = new MemberVO();
 		//model.addAttribute(memberVO);
 	}
 	
 	@PostMapping("join")
 	public ModelAndView setAdd(@Valid MemberVO memberVO, BindingResult bindingResult, ModelAndView mv)throws Exception{
-		
-//		if(bindingResult.hasErrors()) {
-//			//검증에 실패하면 회원가입하는 jsp로 foward
+
+//		boolean check = memberService.getMemberError(memberVO,bindingResult);
+//		if(check) {
 //			log.info("===== 검증 에러 발생 =====");
 //			mv.setViewName("member/add");
-//			return mv;
 //		}
-		boolean check = memberService.getMemberError(memberVO,bindingResult);
-		if(check) {
-			log.info("===== 검증 에러 발생 =====");
-			mv.setViewName("member/add");
-		}
 		
-		//int result = memberService.setAdd(memberVO); 
+		int result = memberService.setAdd(memberVO); 
 		
 		mv.setViewName("redirect:../");
 		return mv;
@@ -86,33 +80,5 @@ public class MemberController {
 		
 		return "redirect:../";
 	}
-	
-//	@GetMapping("idCheck")
-//	@ResponseBody
-//	public int getIdCheck(MemberVO memberVO) throws Exception{
-//		return memberService.getIdCheck(memberVO);
-//	}
-//	
-//	@PostMapping("test")
-//	@ResponseBody
-//	public MemberVO setTest(MemberVO memberVO, String[] ar) throws Exception{
-//		log.info("=================]");
-//		log.info("ID: {}", memberVO.getId());
-//		log.info("name :{}",memberVO.getName());
-//		log.info("ar :{}",ar);
-//		
-////		int result =memberService.getIdCheck(memberVO);
-////		if (result ==0) {
-////			
-////			throw new Exception("뾰로롱");
-////		}
-////		return result;
-//		
-//		for(String s:ar) {
-//			log.info("ar: {}",s);
-//		}
-//		
-//		return memberVO;
-//	}
 	
 }

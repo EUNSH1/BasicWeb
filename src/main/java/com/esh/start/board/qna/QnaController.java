@@ -74,13 +74,44 @@ public class QnaController {
 	  @PostMapping("update")
 	  public ModelAndView setUpdate(QnaVO qnaVO) throws Exception{
 		  ModelAndView mv = new ModelAndView();
-		  log.info("---------",qnaVO.getNum());
 		  int result = qnaService.setUpdate(qnaVO);
 		  
-		  if(result >0) {
-			  log.info("---------",result);
+		  String message = "";
+		  String url = "";
+		  if (result >0) {
+			  message = "success";
+			  url = "./list";
+		  } else {
+			  message = "fail";
+			  url = "./detail";
 		  }
-		  mv.setViewName("redirect:./list");
+		  
+		  mv.addObject("message", message);
+		  mv.addObject("url", url);
+		  mv.setViewName("common/result");
+		  
+		  return mv;
+	  }
+	  
+	  @GetMapping("delete")
+	  public ModelAndView setDelte(QnaVO qnaVO,Model model) throws Exception{
+		  ModelAndView mv = new ModelAndView();
+		  int result = qnaService.setDelete(qnaVO);
+		  
+		  String message = "";
+		  String url = "";
+		  if (result >0) {
+			  message = "success";
+			  url = "./list";
+		  } else {
+			  message = "fail";
+			  url = "./detail";
+		  }
+		  
+		  mv.addObject("message", message);
+		  mv.addObject("url", url);
+		  mv.setViewName("common/result");
+		  
 		  
 		  return mv;
 	  }
