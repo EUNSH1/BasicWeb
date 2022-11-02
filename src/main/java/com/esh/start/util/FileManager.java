@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +39,6 @@ public class FileManager extends AbstractView {
 		QnaFileVO qnaFileVO = (QnaFileVO) model.get("fileVO");
 		String path = (String) model.get("path");
 		
-		
 		log.info("------------");
 		log.info("FILEVO {}", qnaFileVO);
 		
@@ -48,7 +49,7 @@ public class FileManager extends AbstractView {
 		
 		// 총 파일의 크기
 		response.setContentLengthLong(file.length());
-		
+		String [] test = {};
 		// client가 다운로드 시 파일의 이름을 encoding 
 		String oriName = URLEncoder.encode(qnaFileVO.getOriName(), "UTF-8");
 		
@@ -69,7 +70,12 @@ public class FileManager extends AbstractView {
 		fi.close();
 		
 	}
-	
+	 public int solution(String[][] clothes) {
+	        int answer = 0;
+	        
+	        Set<String> hashlist = new HashSet<>();
+	        return answer;
+	    }
 	public String saveFile(MultipartFile multipartFile,String path) throws Exception{
 		
 		

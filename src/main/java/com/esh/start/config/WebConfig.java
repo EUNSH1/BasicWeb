@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer{
    @Override
    public void addResourceHandlers(ResourceHandlerRegistry registry) {
       // TODO Auto-generated method stub
-      
+	  
       log.info("==============================");
       log.info("filePath {}",filePath);
       log.info("urlPath {}",urlPath);
