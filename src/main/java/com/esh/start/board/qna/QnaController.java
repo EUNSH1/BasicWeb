@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.esh.start.board.qna.QnaVO;
+import com.esh.start.util.FileManager;
 import com.esh.start.util.Pager;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +25,7 @@ public class QnaController {
 
 	@Autowired
 	private QnaService qnaService;
+	
 	
 	@GetMapping("list")
 	public ModelAndView getList(QnaVO qnaVO,Pager pager) throws Exception{
@@ -46,8 +49,8 @@ public class QnaController {
 	  public String setAddBoard(QnaVO qnaVO, RedirectAttributes redirectAttributes) throws Exception{
 		  
 		  int result = qnaService.setQnaList(qnaVO);
-		  
 		  redirectAttributes.addAttribute("result", result);		  
+		  
 		  
 		  return "redirect:./list";
 	  }
@@ -55,7 +58,6 @@ public class QnaController {
 	  @GetMapping("detail")
 	  public ModelAndView getListDetail(QnaVO qnaVO) throws Exception {
 		  ModelAndView mv = new ModelAndView();
-		  System.out.println(qnaVO.getNum());
 		  qnaVO = qnaService.getListDetail(qnaVO);
 		  
 		  mv.addObject("qnaVO", qnaVO);

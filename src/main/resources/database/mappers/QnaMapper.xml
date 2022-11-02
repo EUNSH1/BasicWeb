@@ -4,10 +4,22 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.esh.start.board.qna.QnaMapper">
+
+	<sql id="search">
+		WHERE
+		<choose>
+			<when test="kind =='num'">Num</when>
+			<when test="kind == 'title'">Title</when>
+			<when test="kind =='writer'">Writer</when>
+			<otherwise>contents</otherwise>
+		</choose>
+		LIKE CONCAT('%',#{search},'%')
+	</sql>
+	
  	<select id="getList" resultType="QnaVO" >
  		SELECT * 
 		FROM QNA 
-		<!-- WHERE CONTENTS LIKE CONCAT('%','e','%') -->
+		<include refid="search"></include>
 		ORDER BY NUM DESC
 		limit #{startRow}, #{lastRow}
  	</select>
@@ -17,6 +29,11 @@
 		VALUE (#{num},#{writer},#{title},#{contents},0,now(),0,0,0);
  	</insert>
  	
+ 	<insert id="setFileAdd" parameterType="QnaFileVO">
+		INSERT INTO QNAFILES
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
+	</insert>
+	
  	
  	<select id="getCount" resultType="Long" parameterType="Pager">
 		SELECT
@@ -32,9 +49,31 @@
 		WRITER = #{writer}, TITLE = #{title}, contents = #{contents} WHERE num=#{num}
  	</update>
  	
- 	<select id="getListDetail" parameterType="QnaVO" resultType="QnaVO">
+ 	
+ 	<select id="getListDetail" parameterType="QnaVO" resultMap="getFileList">
 		SELECT * 
-			FROM QNA
-			where num = #{num}
+			FROM QNA q
+			left join
+			QNAFILES qf 
+			ON (q.num = qf.num)
+			where q.num = #{num}
+	</select>
+	
+	<resultMap type="QnaVO" id="getFileList">
+		<id column="NUM" property="num"></id>
+		<result column="TITLE" property="title"></result>
+		<result column="WRITER" property="writer"></result>
+		<result column="CONTENTS" property="contents"></result>
+		<result column="REGDATE" property="regDate"></result>
+		<collection property="qnaFileVOs" javaType="List" ofType="QnaFileVO">
+			<id column="FILENUM" property="fileNum"></id>
+			<result column = "FILENAME" property="fileName"></result>
+			<result column = "ORINAME" property="oriName"></result>
+		</collection>
+	</resultMap>
+	
+	<select id="getFileCheck" parameterType="QnaFileVO" resultType="QnaFileVO">
+		SELECT * FROM QNAFILES
+		where fileName = #{fileName}
 	</select>
 </mapper>

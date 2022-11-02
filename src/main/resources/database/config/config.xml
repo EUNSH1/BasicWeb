@@ -6,6 +6,7 @@
 <configuration>
    <typeAliases>
    	<typeAlias type="com.esh.start.board.qna.QnaVO" alias="QnaVO"/>
+   	<typeAlias type="com.esh.start.board.qna.QnaFileVO" alias="QnaFileVO"/>
    	<typeAlias type="com.esh.start.util.Pager" alias="Pager"/>
    	
    	<!-- <typeAlias type="com.esh.start.member.MemberVO" alias="MemberVO"/>

@@ -36,7 +36,15 @@
     </tr>
     
     
-   
+   <c:forEach items="${qnaVO.qnaFileVOs }" var="file">
+	    <tr class="table-primary">
+	    <th>파일</th>
+		     
+				<td><img alt="" src="/file/qna/${file.fileName}"></td>
+			    <td><a href="/fileDown/qna?fileName=${file.fileName}">down</a></td>	
+			
+	    </tr>
+	</c:forEach>
     
   </tbody>
 </table>

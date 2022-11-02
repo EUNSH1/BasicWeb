@@ -17,14 +17,14 @@ $("#fileAdd").click(function(){
     
     if(count<5){
         let r = '<div class="mb-3">';
-        r = r+'<label for="contents" class="form-label">File</label>';
-        r = r+'<input type="file" name="files">';
-        r = r+'<button type="button" class="del">X</button>'
+        r = r+'<label for="contents" class="form-label">Files</label>';
+        r = r+'<input type="file" name="files" class="form-control">';
+        r = r+'<button type="button" class="del btn btn-danger" style="margin:auto;display: block;">X</button>'
         r = r+'</div>';
         $("#fileAddResult").append(r);
         count++;
     }else {
-        alert("최대 5개만 가능")
+        swal("최대 5개만 가능","","warning")
     }    
 });
 
