@@ -9,7 +9,7 @@
 <!-- jquery -->
 <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <c:import url="../temp/boot.jsp"></c:import>
-
+<link href="/css/error.css" rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- include summernote css/js-->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -25,15 +25,15 @@
         
         <div>
         글 제목<br>
-        <input type="text" id="title" name="title" placeholder="글 제목을 입력하세요"><br>
+        <input type="text" id="title" name="title" class="input" placeholder="글 제목을 입력하세요" required><br>
         </div>
          <div>
         작성자<br>
-        <input type="text" id="writer" name="writer"  ><br>
+        <input type="text" id="writer" name="writer" class="input" required ><br>
         </div>
         <div>
         글 내용<br>
-        <textarea id="contents" name="contents" rows="30" cols="100"></textarea>
+        <textarea id="contents" name="contents" rows="30" cols="100" class="input" required></textarea>
         </div>
 				
         <div class="mb-3" id="fileAddResult">

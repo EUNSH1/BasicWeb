@@ -22,6 +22,13 @@ $("#uploadButton").click(function(){
         if (willDelete) {
             if(results.includes(false)){
                 swal("입력 되지 않은 값이 있습니다.","","warning")
+                
+                  document.querySelectorAll("input").forEach(input => {
+                      // 검증 후 폼 요소에 was-validated 클래스로 표시해 둔다
+                      document.forms[0].classList.add("was-validated")
+                    
+                  })
+                
             }else{
                 swal("작성 완료했습니다.", {
                     icon: "success",

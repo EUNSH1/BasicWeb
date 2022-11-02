@@ -1,0 +1,3 @@
+form.was-validated input:invalid {
+    border-color: red;
+}
