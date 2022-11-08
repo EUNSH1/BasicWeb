@@ -5,6 +5,40 @@
     
 <mapper namespace="com.esh.start.member.MemberMapper">
  
+ 	<select id="getLogin" parameterType="MemberVO" resultMap="getMembersRole">
+ 		select * from 
+		member m 
+		left join 
+		member_role mr 
+		on(m.id = mr.id)
+		left join
+		role r 
+		on(mr.num = r.num)
+		where m.id = #{id}
+ 	</select>
  	
+ 	<resultMap type="MemberVO" id="getMembersRole">
+		<id column="ID" property="id"></id>
+		<result column="PW" property="pw"></result>
+		<result column="NAME" property="name"></result>
+		<result column="EMAIL" property="email"></result>
+		<result column="ENABLE" property="enable"></result>
+		<collection property="roleVOs" javaType="List" ofType="RoleVO">
+			<id column="NUM" property="num"></id>
+			<result column = "roleName" property="roleName"></result>
+		</collection>
+	</resultMap>
+ 	
+ 	<insert id="setMemberRole" parameterType="MemberVO">
+		insert into member_role values (#{id}, 
+			(select num from role where roleName='ROLE_MEMBER')
+		)
+	</insert>
+	
+ 	
+ 	<insert id="setAdd" parameterType="MemberVO">
+ 		INSERT INTO MEMBER
+ 		VALUE(#{id},#{pw},#{name},#{email},1)
+ 	</insert>
  	
 </mapper>

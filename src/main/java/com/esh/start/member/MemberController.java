@@ -37,15 +37,15 @@ public class MemberController {
 		
 		
 		
-		memberVO = memberService.getLogin(memberVO);
-		
-		if(memberVO != null) {
-
-			session.setAttribute("check", memberVO);
-			mv.setViewName("redirect:../");
-		} else {
-			mv.setViewName("./login");
-		}
+//		memberVO = memberService.getLogin(memberVO);
+//		
+//		if(memberVO != null) {
+//
+//			session.setAttribute("check", memberVO);
+//			mv.setViewName("redirect:../");
+//		} else {
+//			mv.setViewName("./login");
+//		}
 		
 		return mv;
 	}

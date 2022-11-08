@@ -9,8 +9,8 @@
    	<typeAlias type="com.esh.start.board.qna.QnaFileVO" alias="QnaFileVO"/>
    	<typeAlias type="com.esh.start.util.Pager" alias="Pager"/>
    	
-   	<!-- <typeAlias type="com.esh.start.member.MemberVO" alias="MemberVO"/>
-   	<typeAlias type="com.esh.start.member.RoleVO" alias="roleVO"/> -->
+   	<typeAlias type="com.esh.start.member.MemberVO" alias="MemberVO"/>
+   	<typeAlias type="com.esh.start.member.RoleVO" alias="RoleVO"/> 
    	
    	<typeAlias type="java.lang.Long" alias="Long"/>	
    	<typeAlias type="java.lang.Integer" alias="Integer"/>	

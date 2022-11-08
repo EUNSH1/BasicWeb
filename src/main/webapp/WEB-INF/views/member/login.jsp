@@ -23,14 +23,14 @@
                     </svg>
 
                   <h3 class="mb-5">로그인</h3>
-      
+      			<form action="./login" method="post" id ="frm">
                   <div class="form-outline mb-4">
-                    <input type="text" id="typeEmailX-2" class="form-control form-control-lg" />
+                    <input type="text" id="id" name = "id" class="form-control form-control-lg" />
                     <label class="form-label" for="typeEmailX-2">아이디</label>
                   </div>
       
                   <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                    <input type="password" id="pw" name="pw" class="form-control form-control-lg" />
                     <label class="form-label" for="typePasswordX-2">패스워드</label>
                   </div>
       
@@ -41,7 +41,7 @@
                   </div>
       
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                
+                </form>
                   <hr class="my-4">
                   <a type="button" href="./join.jsp">회원가입 하러가기</a>
                 </div>

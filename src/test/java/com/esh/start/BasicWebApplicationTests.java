@@ -18,19 +18,19 @@ class BasicWebApplicationTests {
 	//@Test
 	void test2() throws Exception {
 
-		QnaVO qnaVO = new QnaVO();
-		int result = 0;
-		for(int i =0; i<100;i++) {
-			qnaVO.setTitle("Title"+i);
-			qnaVO.setContents("Contents" + i);
-			qnaVO.setWriter("Admin");
-			
-			result = qnaMapper.setQnaList(qnaVO);
-				
-		}
-		
-		assertNotEquals(0, result);
-		
+//		QnaVO qnaVO = new QnaVO();
+//		int result = 0;
+//		for(int i =0; i<100;i++) {
+//			qnaVO.setTitle("Title"+i);
+//			qnaVO.setContents("Contents" + i);
+//			qnaVO.setWriter("Admin");
+//			
+//			result = qnaMapper.setQnaList(qnaVO);
+//				
+//		}
+//		
+//		assertNotEquals(0, result);
+//		
 	}
 
 }

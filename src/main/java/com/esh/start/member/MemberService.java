@@ -54,9 +54,9 @@ public class MemberService {
 		
 	}
 	
-	public MemberVO getLogin(MemberVO memberVO)throws Exception{
-		return memberMapper.getLogin(memberVO);
-	}
+//	public MemberVO getLogin(Strin)throws Exception{
+//		return memberMapper.getLogin(memberVO);
+//	}
 	
 
 }
